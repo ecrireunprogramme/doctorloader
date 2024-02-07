@@ -1,6 +1,7 @@
 ﻿using DoctorLoader.Domain;
 using DoctorLoader.Infrastructure.Configurations;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace DoctorLoader.Infrastructure.Repositories
 {
@@ -19,7 +20,7 @@ namespace DoctorLoader.Infrastructure.Repositories
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(DocumentConfiguration).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

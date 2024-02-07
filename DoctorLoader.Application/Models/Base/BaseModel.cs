@@ -1,6 +1,6 @@
 ﻿namespace DoctorLoader.Application.Models.Base;
 
-internal abstract class BaseModel
+internal abstract record BaseModel
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
 }

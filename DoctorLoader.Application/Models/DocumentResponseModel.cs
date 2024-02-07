@@ -2,8 +2,8 @@
 
 namespace DoctorLoader.Application.Models;
 
-internal class DocumentResponseModel: BaseModel
+internal record DocumentResponseModel: BaseModel
 {
-    public DocumentRequestModel? DocumentRequest { get; set; }
-    public IEnumerable<DocumentModel>? Documents { get; set; }
+    public DocumentRequestModel? DocumentRequest { get; init; }
+    public IEnumerable<DocumentModel>? Documents { get; init; }
 }

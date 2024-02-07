@@ -1,3 +1,4 @@
+using DoctorLoader.Application.Contracts;
 using DoctorLoader.Application.DependencyResolver;
 using DoctorLoader.Infrastructure.DependencyResolver;
 
@@ -40,6 +41,15 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast")
+.WithOpenApi();
+
+app.MapGet("/documentrequests", (IServiceManager serviceManager,
+                                int pageSize = 1, 
+                                int pageNumber = 10) =>
+{
+    return serviceManager.LoaderService.GetDocumentRequests(pageNumber, pageSize);
+})
+.WithName("GetDocumentRequests")
 .WithOpenApi();
 
 app.Run();

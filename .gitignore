@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # VS Code
 .vscode
+
+# Sqlite database
+*dataloader.db*

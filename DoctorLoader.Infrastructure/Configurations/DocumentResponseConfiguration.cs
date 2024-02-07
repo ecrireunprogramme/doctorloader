@@ -9,7 +9,10 @@ namespace DoctorLoader.Infrastructure.Configurations
         {
             base.Configure(builder);
 
-            builder.HasOne(e => e.DocumentRequest);
+            builder.HasOne(e => e.DocumentRequest)
+                .WithOne(e => e.DocumentResponse)
+                .HasForeignKey<DocumentResponse>(e => e.DocumentRequestId)
+                .IsRequired();
         }
     }
 }

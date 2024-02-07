@@ -20,8 +20,6 @@ namespace DoctorLoader.Infrastructure.Configurations
                 .IsRequired();
 
             builder.Property(e => e.LastModifiedBy);
-
-            // TODO: publier le projet dans le repository de ecrireunprogramme
         }
     }
 }

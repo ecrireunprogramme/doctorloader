@@ -2,6 +2,7 @@
 using DoctorLoader.Application.Contracts.Interfaces.Services;
 using DoctorLoader.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace DoctorLoader.Application.DependencyResolver
 {
@@ -10,7 +11,9 @@ namespace DoctorLoader.Application.DependencyResolver
         public static void AddApplication(this IServiceCollection services)
         {
             services.AddMediatR(cfg => 
-                cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddScoped<ILoaderService, LoaderService>()
                     .AddScoped<IServiceManager, ServiceManager>();

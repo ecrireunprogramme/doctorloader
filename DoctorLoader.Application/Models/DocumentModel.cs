@@ -2,8 +2,8 @@
 
 namespace DoctorLoader.Application.Models;
 
-internal class DocumentModel: BaseModel
+internal record DocumentModel: BaseModel
 {
-    public string? Name { get; set; }
-    public int Size { get; set; }
+    public string? Name { get; init; }
+    public int Size { get; init; }
 }
